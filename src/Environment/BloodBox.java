@@ -24,7 +24,7 @@ public class BloodBox {
 				.getResource("../Images/blood.jpg")), };
 	}
 
-	private int[][] pos = { { 100, 120 }, { 200, 300 }, { 760, 570 },
+	private int[][]   pos = { { 100, 120 }, { 200, 300 }, { 760, 570 },
 			{ 280, 570 }, { 600, 40 }, { 700, 60 }, { 680, 225 } };
 
 	public BloodBox() {
