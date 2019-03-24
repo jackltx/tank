@@ -1,7 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6df409b9-18f2-4088-ba7d-428d1b2f94fd" name="Default Changelist" comment="" />
+    <list default="true" id="6df409b9-18f2-4088-ba7d-428d1b2f94fd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Attack/Fire.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Attack/MediumFire.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Attack/NormalFire.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Attack/QuickFire.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Client/HitObserver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Client/PaintThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Factory/BadTankFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Factory/GoodTankFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Factory/TankFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Images/nju.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Images/nju1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Start/Start.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tank/BadTank.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tank/GoodTank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/BloodBox.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Direction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Explode.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Home.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Images/Thumbs.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Images/river.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Images/river.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Images/tree.gif" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Images/tree.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Images/普通墙.gif" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Images/普通墙.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Images/金属墙.gif" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Images/金属墙.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/MetalWall.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Missile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/OrdinaryWall.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/River.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Tank$BloodBar.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Tank.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/TankClient$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/TankClient$KeyMonitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/TankClient$PaintThread.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/TankClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Tree.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BloodBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Environment/BloodBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Direction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Explode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Environment/Explode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Home.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Environment/Home.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/river.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/river.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/tree.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/tree.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/普通墙.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/普通墙.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Images/金属墙.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/Images/金属墙.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MetalWall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Environment/MetalWall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Missile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Environment/Missile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OrdinaryWall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Environment/OrdinaryWall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/River.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Environment/River.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tank/Tank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TankClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/TankClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Environment/Tree.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -9,47 +61,37 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TankClient.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Client/TankClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            <state relative-caret-position="202">
+              <caret line="286" lean-forward="true" selection-start-line="286" selection-end-line="286" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#paint#0;class#TankClient#0" />
                 <element signature="method#update#0;class#TankClient#0" />
-                <element signature="method#lauchFrame#0;class#TankClient#0" />
+                <element signature="e#6051#6147#0" expanded="true" />
+                <element signature="e#6146#6147#0" expanded="true" />
                 <element signature="method#createFrame#0;class#TankClient#0" />
+                <element signature="e#7618#7619#0" expanded="true" />
+                <element signature="e#7648#7649#0" expanded="true" />
+                <element signature="e#7688#7689#0" expanded="true" />
+                <element signature="e#7717#7718#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Direction.java">
+        <entry file="file://$PROJECT_DIR$/src/Factory/GoodTankFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Explode.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/BloodBox.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+            <state relative-caret-position="230">
+              <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -58,24 +100,46 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Tank.java">
+        <entry file="file://$PROJECT_DIR$/src/Tank/Tank.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5773">
-              <caret line="253" column="28" selection-start-line="253" selection-start-column="28" selection-end-line="253" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Missile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1150">
-              <caret line="53" column="11" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="11" />
+            <state relative-caret-position="253">
+              <caret line="114" column="22" selection-start-line="114" selection-start-column="22" selection-end-line="114" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>update</find>
+      <find>step</find>
+      <find>12</find>
+      <find>F2</find>
+      <find>draw</find>
+      <find>BloodBox</find>
+      <find>J</find>
+      <find>listen</find>
+      <find>missiles</find>
+      <find>game</find>
+      <find>over</find>
+      <find>life</find>
+      <find>live</find>
+      <find>keyR</find>
+      <find>home</find>
+      <find>eat</find>
+      <find>private</find>
+      <find>tc</find>
+      <find>f2</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -83,7 +147,41 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/src/OrdinaryWall.java" />
+        <option value="$PROJECT_DIR$/src/Missile.java" />
+        <option value="$PROJECT_DIR$/src/Start.java" />
+        <option value="$PROJECT_DIR$/src/Home.java" />
+        <option value="$PROJECT_DIR$/src/TankFactory.java" />
+        <option value="$PROJECT_DIR$/src/GoodTank.java" />
+        <option value="$PROJECT_DIR$/src/GoodTankFactory.java" />
+        <option value="$PROJECT_DIR$/src/BadTankFactory.java" />
         <option value="$PROJECT_DIR$/src/TankClient.java" />
+        <option value="$PROJECT_DIR$/src/Tank.java" />
+        <option value="$PROJECT_DIR$/src/BadTank.java" />
+        <option value="$PROJECT_DIR$/src/Environment/Explode.java" />
+        <option value="$PROJECT_DIR$/src/Factory/BadTankFactory.java" />
+        <option value="$PROJECT_DIR$/src/Start/Start.java" />
+        <option value="$PROJECT_DIR$/src/Tank/GoodTank.java" />
+        <option value="$PROJECT_DIR$/src/Factory/GoodTankFactory.java" />
+        <option value="$PROJECT_DIR$/src/Environment/BloodBox.java" />
+        <option value="$PROJECT_DIR$/src/Environment/OrdinaryWall.java" />
+        <option value="$PROJECT_DIR$/src/Environment/Tree.java" />
+        <option value="$PROJECT_DIR$/src/Environment/River.java" />
+        <option value="$PROJECT_DIR$/src/Attack/Fire.java" />
+        <option value="$PROJECT_DIR$/src/Attack/NormalFire.java" />
+        <option value="$PROJECT_DIR$/src/Attack/SuperFire.java" />
+        <option value="$PROJECT_DIR$/src/Environment/Missile2.java" />
+        <option value="$PROJECT_DIR$/src/Attack/QuickFire.java" />
+        <option value="$PROJECT_DIR$/src/Tank/BadTank.java" />
+        <option value="$PROJECT_DIR$/src/Attack/MediumFire.java" />
+        <option value="$PROJECT_DIR$/src/Tank/Tank.java" />
+        <option value="$PROJECT_DIR$/src/Environment/Home.java" />
+        <option value="$PROJECT_DIR$/src/Environment/MetalWall.java" />
+        <option value="$PROJECT_DIR$/src/Client/PaintThread.java" />
+        <option value="$PROJECT_DIR$/src/Client/ReinforcedTankClient.java" />
+        <option value="$PROJECT_DIR$/src/Client/HitObserver.java" />
+        <option value="$PROJECT_DIR$/src/Environment/Missile.java" />
+        <option value="$PROJECT_DIR$/src/Client/TankClient.java" />
       </list>
     </option>
   </component>
@@ -99,33 +197,45 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="tankwar7ban" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TankWar" type="462c0819:PsiDirectoryNode" />
+              <item name="tank" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="tankwar7ban" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TankWar" type="462c0819:PsiDirectoryNode" />
+              <item name="tank" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553182693080" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../TankGame/tankgame" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553429848880" />
+    <property name="last_opened_file_path" value="E:/project/ObserverPattern" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Client" />
+      <recent name="Attack" />
+      <recent name="Environment" />
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\game\gg\源代码\tank\tank\src\Images" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -139,9 +249,16 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Start">
+    <configuration name="Start" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Start.Start" />
+      <module name="tankwar7ban" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TankClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="TankClient" />
+      <option name="MAIN_CLASS_NAME" value="Client.TankClient" />
       <module name="tankwar7ban" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -149,6 +266,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Start" />
         <item itemvalue="Application.TankClient" />
       </list>
     </recent_temporary>
@@ -165,35 +283,39 @@
       <updated>1553157906231</updated>
       <workItem from="1553157908817" duration="4629000" />
       <workItem from="1553233221822" duration="282000" />
+      <workItem from="1553233736882" duration="1681000" />
+      <workItem from="1553348599317" duration="45272000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4911000" />
+    <option name="totallyTimeSpent" value="51864000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20937753" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16895716" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.24074075" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.69202226" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="10" />
-      <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="Duplicate detector" order="0" weight="0.3283859" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.3283859" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.29313543" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.39888683" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.39517626" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3283859" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -206,36 +328,37 @@
       <window_info anchor="right" id="Theme Preview" order="9" />
     </layout>
     <layout-to-restore>
-      <window_info id="Designer" order="0" />
-      <window_info id="Image Layers" order="1" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="UI Designer" order="3" />
-      <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.2061439" />
-      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" />
-      <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="3" />
-      <window_info anchor="bottom" id="Database Changes" order="4" />
-      <window_info anchor="bottom" id="Version Control" order="5" />
-      <window_info anchor="bottom" id="Message" order="6" />
-      <window_info anchor="bottom" id="Find" order="7" />
-      <window_info anchor="bottom" id="Run" order="8" weight="0.32962963" />
-      <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="12" />
-      <window_info anchor="right" id="Maven" order="0" />
-      <window_info anchor="right" id="Palette" order="1" />
-      <window_info anchor="right" id="Capture Analysis" order="2" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="right" id="Theme Preview" order="6" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="7" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="8" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="9" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16895716" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Duplicate detector" order="0" weight="0.3283859" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.3283859" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.29313543" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.39888683" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.39517626" />
+      <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.3283859" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="SciView" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -250,103 +373,348 @@
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Environment/Home.java</url>
+          <line>64</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../Calculator.java">
+    <entry file="file://$PROJECT_DIR$/src/Images/tankL.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/tankLD.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/tankD.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/awt/event/KeyAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="571" column="42" lean-forward="true" selection-start-line="571" selection-start-column="42" selection-end-line="571" selection-end-column="42" />
+        <state relative-caret-position="128">
+          <caret line="52" column="22" selection-start-line="52" selection-start-column="22" selection-end-line="52" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Environment/Explode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="55" column="20" lean-forward="true" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#19385#19386#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/awt/event/KeyListener.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/List.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
-          <caret line="50" column="17" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+          <caret line="543" column="6" selection-start-line="543" selection-start-column="6" selection-end-line="543" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/awt/Graphics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="233" column="25" selection-start-line="233" selection-start-column="25" selection-end-line="233" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Client/Direction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Environment/Missile2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="13" column="40" lean-forward="true" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Attack/Fire.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Attack/MediumFire.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Attack/NormalFire.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="12" column="74" lean-forward="true" selection-start-line="12" selection-start-column="74" selection-end-line="12" selection-end-column="74" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Attack/QuickFire.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="8" column="23" lean-forward="true" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tank/GoodTank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-207">
+          <caret line="9" column="20" lean-forward="true" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tank/BadTank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="883">
+          <caret line="56" column="22" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Factory/BadTankFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/0.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/10.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/9.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/8.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/7.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/6.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/5.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/4.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/3.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/2.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/1.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/nju.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/awt/Toolkit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="851" column="39" selection-start-line="851" selection-start-column="39" selection-end-line="851" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/nju.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Environment/Home.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="15" column="54" lean-forward="true" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/金属墙.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Environment/MetalWall.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Environment/OrdinaryWall.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#616#617#0" expanded="true" />
+            <element signature="e#660#661#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/tree.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/river.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Images/普通墙.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Environment/River.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="17" column="83" selection-start-line="17" selection-start-column="83" selection-end-line="17" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Environment/Tree.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Start/Start.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/awt/Component.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141289">
-          <caret line="6482" column="16" lean-forward="true" selection-start-line="6482" selection-start-column="16" selection-end-line="6482" selection-end-column="16" />
+        <state relative-caret-position="164">
+          <caret line="3311" column="5" lean-forward="true" selection-start-line="3311" selection-start-column="5" selection-end-line="3311" selection-end-column="5" />
+          <folding>
+            <element signature="e#114480#114481#0" expanded="true" />
+            <element signature="e#114527#114528#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Images/tankD.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Images/tankL.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Images/tankU.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Images/tankR.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/awt/Graphics.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/awt/event/KeyEvent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="881" column="28" selection-start-line="881" selection-start-column="28" selection-end-line="881" selection-end-column="28" />
+        <state relative-caret-position="118">
+          <caret line="151" column="13" selection-start-line="151" selection-start-column="13" selection-end-line="151" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TankClient.java">
+    <entry file="file://$PROJECT_DIR$/src/Client/ReinforcedTankClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Environment/BloodBox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Client/PaintThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="46">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <caret line="2" column="46" lean-forward="true" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
+          <folding>
+            <element signature="e#128#129#0" expanded="true" />
+            <element signature="e#154#155#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Environment/Missile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="139" column="56" selection-start-line="139" selection-start-column="56" selection-end-line="139" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Client/HitObserver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="15" column="37" lean-forward="true" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Factory/TankFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="5" column="22" lean-forward="true" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Factory/GoodTankFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="15" column="24" lean-forward="true" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Tank/Tank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="114" column="22" selection-start-line="114" selection-start-column="22" selection-end-line="114" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Client/TankClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="286" lean-forward="true" selection-start-line="286" selection-end-line="286" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#paint#0;class#TankClient#0" />
             <element signature="method#update#0;class#TankClient#0" />
-            <element signature="method#lauchFrame#0;class#TankClient#0" />
+            <element signature="e#6051#6147#0" expanded="true" />
+            <element signature="e#6146#6147#0" expanded="true" />
             <element signature="method#createFrame#0;class#TankClient#0" />
+            <element signature="e#7618#7619#0" expanded="true" />
+            <element signature="e#7648#7649#0" expanded="true" />
+            <element signature="e#7688#7689#0" expanded="true" />
+            <element signature="e#7717#7718#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Direction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/BloodBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tank.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5773">
-          <caret line="253" column="28" selection-start-line="253" selection-start-column="28" selection-end-line="253" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Missile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1150">
-          <caret line="53" column="11" selection-start-line="53" selection-start-column="11" selection-end-line="53" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Explode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
     </entry>
