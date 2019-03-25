@@ -9,7 +9,7 @@ public class PaintThread implements Runnable {
         while (true) {
             tc.repaint();
             try {
-                Thread.sleep(30);
+                Thread.sleep(40);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
