@@ -7,6 +7,7 @@ import Attack.QuickFire;
 import Client.Direction;
 import Client.TankClient;
 import Environment.*;
+import MoveState.*;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -28,31 +29,35 @@ public abstract class Tank {
 	static Random r = new Random();
 	int step = r.nextInt(12) + 3;
 
-	boolean bL = false, bU = false, bR = false, bD = false;
-	Direction dir = STOP;
-	public Direction ptDir = U;
+	//按下去为true 位置会一直改变 弹起来为false 位置就不能变了
+//	boolean bL = false, bU = false, bR = false, bD = false;
+//	public Direction ptDir = U;
+	//组合五种朝向状态：向上下左右和停止
+	protected Up up;
+	protected Down down;
+	protected Left left;
+	protected Right right;
+	protected Stop stop;
+	protected State curState;
 
 	static Toolkit tk = Toolkit.getDefaultToolkit();
-	static Image[] tankImags = null;
-	static {
-		tankImags = new Image[] {
-				tk.getImage(Explode.class.getResource("../Images/tankD.gif")),
-				tk.getImage(Explode.class.getResource("../Images/tankU.gif")),
-				tk.getImage(Explode.class.getResource("../Images/tankL.gif")),
-				tk.getImage(Explode.class.getResource("../Images/tankR.gif")),
-				 };
-	}
 
 	public Tank(int x, int y) {
 		this.x = x;
 		this.y = y;
 		this.oldX = x;
 		this.oldY = y;
+		//初始化状态朝上
+		this.up = new Up(this, tk.getImage(Explode.class.getResource("../Images/tankU.gif")));
+		this.down = new Down(this,tk.getImage(Explode.class.getResource("../Images/tankD.gif")));
+		this.left = new Left(this, tk.getImage(Explode.class.getResource("../Images/tankL.gif")));
+		this.right = new Right(this, tk.getImage(Explode.class.getResource("../Images/tankR.gif")));
+		this.stop = new Stop(this, this.up);
+		this.curState = this.up;
 	}
 
-	public Tank(int x, int y, Direction dir, TankClient tc) {
+	public Tank(int x, int y, TankClient tc) {
 		this(x, y);
-		this.dir = dir;
 		this.tc = tc;
 	}
 
@@ -64,34 +69,38 @@ public abstract class Tank {
 		this.y = y;
 	}
 
-	public void draw(Graphics g) {
-	}
+	public abstract void draw(Graphics g);
 
+	//通过算出设置移动后的xy坐标，然后重画坦克来表示移动
+	//todo 状态模式
 	void move() {
 
 		this.oldX = x;
 		this.oldY = y;
+		//用一个context handle 概括所有的判断
+		//如果是处于（某朝向）状态 则往该状态下的方向计算新的距离
+		//curState.moveTo()
+		curState.changePosition();
+//		switch (dir) {
+//		case L:
+//			x -= XSPEED;
+//			break;
+//		case U:
+//			y -= YSPEED;
+//			break;
+//		case R:
+//			x += XSPEED;
+//			break;
+//		case D:
+//			y += YSPEED;
+//			break;
+//		case STOP:
+//			break;
+//		}
 
-		switch (dir) {
-		case L:
-			x -= XSPEED;
-			break;
-		case U:
-			y -= YSPEED;
-			break;
-		case R:
-			x += XSPEED;
-			break;
-		case D:
-			y += YSPEED;
-			break;
-		case STOP:
-			break;
-		}
-
-		if (this.dir != STOP) {
-			this.ptDir = this.dir;
-		}
+//		if (this.dir != STOP) {
+//			this.ptDir = this.dir;
+//		}
 
 		if (x < 0)
 			x = 0;
@@ -101,70 +110,74 @@ public abstract class Tank {
 			x = TankClient.GAME_WIDTH - Tank.WIDTH;
 		if (y + Tank.HEIGHT > TankClient.GAME_HEIGHT)
 			y = TankClient.GAME_HEIGHT - Tank.HEIGHT;
-		doSth();
 	}
-	void doSth(){
-		return;
-	}
+
 
 	void stay() {
 		x = oldX;
 		y = oldY;
 	}
 
+	//按键事件，按下对应的方向表示可以往哪个方向运动
+	//todo 用状态模式改进 当按了什么键 context对象里的当前状态就改成什么状态
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 		switch (key) {
 		case KeyEvent.VK_F2:
-			tc=new TankClient();
-			tc.lauchFrame();
+			//重建一个画布和一个线程 来运行一个新游戏
+			//todo 要能删除原来的游戏
+			tc.dispose();
+			new TankClient().lauchFrame();
 			break;
 		case KeyEvent.VK_RIGHT:
-			bR = true;
+			curState = this.right;
 			break;
 		case KeyEvent.VK_D:
-			bR = true;
+			curState = this.right;
 			break;
 		case KeyEvent.VK_LEFT:
-			bL = true;
+			curState = this.left;
 			break;
 		case KeyEvent.VK_A:
-			bL = true;
+			curState = this.left;
 			break;
 		case KeyEvent.VK_UP:
-			bU = true;
+			curState = this.up;
 			break;
 		case KeyEvent.VK_W:
-			bU = true;
+			curState = this.up;
 			break;
 		case KeyEvent.VK_DOWN:
-			bD = true;
+			curState = this.down;
 			break;
 		case KeyEvent.VK_S:
-			bD = true;
+			curState = this.down;
 			break;
 		}
-		locateDirection();
+		//最后确定坦克朝向
+//		locateDirection();
 	}
 
-	void locateDirection() {
-		if (bL && !bU && !bR && !bD)
-			dir = L;
+//	void locateDirection() {
+//		if (bL && !bU && !bR && !bD)
+//			dir = L;
+//
+//		else if (!bL && bU && !bR && !bD)
+//			dir = U;
+//
+//		else if (!bL && !bU && bR && !bD)
+//			dir = R;
+//
+//		else if (!bL && !bU && !bR && bD)
+//			dir = D;
+//
+//		else if (!bL && !bU && !bR && !bD)
+//			dir = STOP;
+//	}
 
-		else if (!bL && bU && !bR && !bD)
-			dir = U;
-
-		else if (!bL && !bU && bR && !bD)
-			dir = R;
-
-		else if (!bL && !bU && !bR && bD)
-			dir = D;
-
-		else if (!bL && !bU && !bR && !bD)
-			dir = STOP;
-	}
-
+    //松开键 会将方向布尔值变为false
 	public void keyReleased(KeyEvent e) {
+		//Fire接口表示一种开火方式 普通 中间 快速
 		Fire fire;
 		int key = e.getKeyCode();
 		switch (key) {
@@ -181,34 +194,43 @@ public abstract class Tank {
 				fire.fire(this);
 				break;
 			case KeyEvent.VK_RIGHT:
-				bR = false;
+				//把stop类的preState设置成之前的状态
+				stop.setPreState(curState);
+				curState = stop;
 				break;
 			case KeyEvent.VK_D:
-				bR = false;
+				stop.setPreState(curState);
+				curState = stop;
 				break;
 			case KeyEvent.VK_LEFT:
-				bL = false;
+				stop.setPreState(curState);
+				curState = stop;
 				break;
 			case KeyEvent.VK_A:
-				bL = false;
+				stop.setPreState(curState);
+				curState = stop;
 				break;
 			case KeyEvent.VK_UP:
-				bU = false;
+				stop.setPreState(curState);
+				curState = stop;
 				break;
 			case KeyEvent.VK_W:
-				bU = false;
+				stop.setPreState(curState);
+				curState = stop;
 				break;
 			case KeyEvent.VK_DOWN:
-				bD = false;
+				stop.setPreState(curState);
+				curState = stop;
 				break;
 			case KeyEvent.VK_S:
-				bD = false;
+				stop.setPreState(curState);
+				curState = stop;
 				break;
 			case KeyEvent.VK_K:
 				superFire();
 				break;
 		}
-		locateDirection();
+		//locateDirection();
 	}
 
 	public Missile fire() {
@@ -216,21 +238,23 @@ public abstract class Tank {
 			return null;
 		int x = this.x + Tank.WIDTH / 2 - Missile.WIDTH / 2;
 		int y = this.y + Tank.HEIGHT / 2 - Missile.HEIGHT / 2;
-		Missile m = new Missile(x, y + 2, good, ptDir, this.tc);
+		//发射的子弹
+		Missile m = new Missile(x, y + 2, good, curState, this.tc);
 		tc.missiles.add(m);
 		return m;
 	}
 
-	public Missile fire(Direction dir) {
+	public Missile fire(State curState) {
 		if (!live)
 			return null;
 		int x = this.x + Tank.WIDTH / 2 - Missile.WIDTH / 2;
 		int y = this.y + Tank.HEIGHT / 2 - Missile.HEIGHT / 2;
-		Missile m = new Missile(x, y, good, dir, this.tc);
+		Missile m = new Missile(x, y, good, curState, this.tc);
 		tc.missiles.add(m);
 		return m;
 	}
 
+	//碰撞体积
 	public Rectangle getRect() {
 		return new Rectangle(x, y, WIDTH, HEIGHT);
 	}
@@ -247,7 +271,13 @@ public abstract class Tank {
 		return good;
 	}
 
+	public State getCurState() {
+		return curState;
+	}
+
+	//碰撞到墙的事件
 	public boolean collidesWithWall(OrdinaryWall w) {
+		//如果坦克的碰撞体积和墙重叠
 		if (this.live && this.getRect().intersects(w.getRect())) {
 			this.stay();
 			return true;
@@ -294,11 +324,16 @@ public abstract class Tank {
 		return false;
 	}
 
+	//todo 吃装备才能用高级弹药 这是一个技能 用策略
 	private void superFire() {
-		Direction[] dirs = values();
-		for (int i = 0; i < 4; i++) {
-			fire(dirs[i]);
-		}
+//		for (int i = 0; i < 4; i++) {
+//			fire(dirs[i]);
+//		}
+		//要四个方向同时开火 可以调用多个fire方法 传入多个方向state
+		fire(up);
+		fire(down);
+		fire(left);
+		fire(right);
 	}
 
 	public int getLife() {
@@ -309,7 +344,9 @@ public abstract class Tank {
 		this.life = life;
 	}
 
+	//血条类
 	public class BloodBar {
+		//画血条
 		public void draw(Graphics g) {
 			Color c = g.getColor();
 			g.setColor(Color.RED);
@@ -320,6 +357,7 @@ public abstract class Tank {
 		}
 	}
 
+	//吃血包的方法
 	public boolean eat(BloodBox b) {
 		if (this.live && b.isLive() && this.getRect().intersects(b.getRect())) {
 			if (this.life<100){
@@ -338,4 +376,5 @@ public abstract class Tank {
 	public int getY() {
 		return y;
 	}
+
 }

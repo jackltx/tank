@@ -35,8 +35,13 @@ public class TankClient extends Frame {
 	public List<Tree> trees = new ArrayList<Tree>();
 	public Image screenImage = null;
 
+
 	public void paint(Graphics g) {
 
+		/*
+		* ç”»å‡ºå·¦ä¸Šè§’æç¤ºå­—
+		* å…ˆè®¾ç½®é¢œè‰² åœ¨ç”¨drewStringå†™
+		* */
 		Color c = g.getColor();
 		g.setColor(Color.red);
 		g.drawString("Restart the game: F2", 10, 50);
@@ -44,6 +49,11 @@ public class TankClient extends Frame {
 		g.drawString("Super Fire: K", 10, 90);
 		g.drawString("The key control direction: A W D S", 10, 110);
 
+		/*
+		* ç”»å‡ºä¸­é—´ä¸Šæ–¹æ•Œäººæ•°é‡
+		* å°†åŸæœ‰å­—ä½“f1ä¿å­˜èµ·æ¥ï¼Œç”¨ä¸åŒçš„æ–°å»ºå­—ä½“ï¼Œç”»å‡ºä¸åŒçš„å­—ã€‚
+		* å†å°†f1å­—ä½“æ”¾å›å»
+		* */
 		Font f1 = g.getFont();
 		g.setFont(new Font("aaa", Font.BOLD, 25));
 		g.drawString("The number of enemy tanks: ", 210, 70);
@@ -180,12 +190,12 @@ public class TankClient extends Frame {
 		g.drawImage(screenImage, 0, 0, null);
 	}
 
-	//³õÊ¼»¯ÓÎÏ·½çÃæ²¢¿ªÊ¼ÓÎÏ·
+	//åˆå§‹åŒ–æ¸¸æˆç•Œé¢å¹¶å¼€å§‹æ¸¸æˆ
 	public void lauchFrame(){
-		//´´½¨ÓÎÏ·¾²Ì¬Í¼ÃæÄÚÈİ
+		//åˆ›å»ºæ¸¸æˆé™æ€å›¾é¢å†…å®¹
 		home.setTc(this);
 		createFrame();
-		//Ìí¼ÓµĞ·½Ì¹¿Ë
+		//æ·»åŠ æ•Œæ–¹å¦å…‹
 		TankFactory tankFactory=new BadTankFactory(this);
 		for (int i = 0; i < 9; i++) {
 			Tank t=tankFactory.createTank();
@@ -214,28 +224,28 @@ public class TankClient extends Frame {
 //				tanks.add(new Tank.Tank(1,  60 * (i - 18), false, Client.Direction.D,
 //						this));
 //		}
-		//ÉèÖÃÓÎÏ·½çÃæ´óĞ¡¡¢´°¿Ú¶¨Î»¡¢±êÌâ
+		//è®¾ç½®æ¸¸æˆç•Œé¢å¤§å°ã€çª—å£å®šä½ã€æ ‡é¢˜
 		this.setSize(GAME_WIDTH, GAME_HEIGHT);
 		this.setLocation(200, 60);
 		this.setTitle("TankWar");
-		//Ö§³Ö´°¿Ú¹Ø±Õ
+		//æ”¯æŒçª—å£å…³é—­
 		this.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 				System.exit(0);
 			}
 		});
-		//¹Ì¶¨´óĞ¡¡¢±³¾°¡¢¿ÉÊÓ»¯ÉèÖÃ
+		//å›ºå®šå¤§å°ã€èƒŒæ™¯ã€å¯è§†åŒ–è®¾ç½®
 		this.setResizable(false);
 		this.setBackground(Color.GREEN);
 		this.setVisible(true);
-		//Ìí¼Ó¼üÅÌÖ§³Ö
+		//æ·»åŠ é”®ç›˜æ”¯æŒ
 		this.addKeyListener(new KeyMonitor());
-		//¿ªÊ¼ÓÎÏ·
+		//å¼€å§‹æ¸¸æˆ
 		new Thread(new PaintThread(this)).start();
 	}
-	//´´½¨ÓÎÏ·¾²Ì¬Í¼ÃæÄÚÈİ
+	//åˆ›å»ºæ¸¸æˆé™æ€å›¾é¢å†…å®¹
 	public void createFrame() {
-		//»æÖÆÆÕÍ¨Ç½Ìå
+		//ç»˜åˆ¶æ™®é€šå¢™ä½“
 		for (int i = 0; i < 27; i++) {
 			if (i < 9)
 				walls.add(new OrdinaryWall(296 + 22 * i, 300, this));
@@ -244,7 +254,7 @@ public class TankClient extends Frame {
 			else
 				walls.add(new OrdinaryWall(296 + 22 * (i - 18), 400, this));
 		}
-		//»æÖÆ½ğÊôÇ½Ìå
+		//ç»˜åˆ¶é‡‘å±å¢™ä½“
 		for (int i = 0; i < 14; i++){
 			if (i < 5)
 				metalWalls.add(new MetalWall(120 + 36 * i, 110, this));
@@ -253,7 +263,7 @@ public class TankClient extends Frame {
 			else
 				metalWalls.add(new MetalWall(500 + 36 * (i - 10), 160, this));
 		}
-		//»æÖÆÊ÷ÁÖ
+		//ç»˜åˆ¶æ ‘æ—
 		for (int i = 0; i < 48; i++) {
 			if (i < 8)
 				trees.add(new Tree(500 + 36 * i, 300, this));
@@ -268,17 +278,18 @@ public class TankClient extends Frame {
 			else
 				trees.add(new Tree(1 + 36 * (i - 40), 403, this));
 		}
-		//»æÖÆºÓÁ÷
+		//ç»˜åˆ¶æ²³æµ
 		for (int i = 0; i < 2; i++) {
 			if (i < 1)
 				rivers.add(new River(80, 440, this));
 			else
 				rivers.add(new River(670, 440, this));
 		}
-		//»æÖÆÀÏ¼Ò±£ÎÀÇ½
+		//ç»˜åˆ¶è€å®¶ä¿å«å¢™
 		home.createHomeWall();
 	}
 
+	//é”®ç›˜ç›‘å¬å™¨
 	class KeyMonitor extends KeyAdapter {
 
 		public void keyReleased(KeyEvent e) {

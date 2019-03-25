@@ -3,6 +3,7 @@ package Environment;
 import Client.Direction;
 import Client.HitObserver;
 import Client.TankClient;
+import MoveState.State;
 import Tank.Tank;
 
 import java.awt.*;
@@ -19,7 +20,7 @@ public class Missile extends Observable {
 	public static final int HEIGHT = 10;
 	
 	private int x, y;
-	Direction dir;
+	private State curState;//è¡¨ç¤ºå¦å…‹æœå‘çš„çŠ¶æ€ç±»
 	
 	private boolean good;
 	private boolean live = true;
@@ -51,15 +52,27 @@ public class Missile extends Observable {
 		
 		
 	}
-	
-	public Missile(int x, int y, Direction dir) {
+
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public static Map<String, Image> getImgs() {
+		return imgs;
+	}
+
+	public Missile(int x, int y, State curState) {
 		this.x = x;
 		this.y = y;
-		this.dir = dir;
+		this.curState = curState;
 	}
 	
-	public Missile(int x, int y, boolean good, Direction dir, TankClient tc) {
-		this(x, y, dir);
+	public Missile(int x, int y, boolean good, State curState, TankClient tc) {
+		this(x, y, curState);
 		this.good = good;
 		this.tc = tc;
 	}
@@ -69,52 +82,56 @@ public class Missile extends Observable {
 			tc.missiles.remove(this);
 			return;
 		}
-		
-		switch(dir) {
-		case L:
-			g.drawImage(imgs.get("L"), x, y, null);
-			break;
-		
-		case U:
-			g.drawImage(imgs.get("U"), x, y, null);
-			break;
-		
-		case R:
-			g.drawImage(imgs.get("R"), x, y, null);
-			break;
-		
-		case D:
-			g.drawImage(imgs.get("D"), x, y, null);
-			break;
-		
-		}
-		
+
+		//å­å¼¹ç§»åŠ¨ åªè¦è°ƒç”¨Stateçš„ç”»å›¾æ–¹å‘å°±è¡Œ
+		curState.drawMissileSelf(g,this);
+//		switch(dir) {
+//		case L:
+//			g.drawImage(imgs.get("L"), x, y, null);
+//			break;
+//
+//		case U:
+//			g.drawImage(imgs.get("U"), x, y, null);
+//			break;
+//
+//		case R:
+//			g.drawImage(imgs.get("R"), x, y, null);
+//			break;
+//
+//		case D:
+//			g.drawImage(imgs.get("D"), x, y, null);
+//			break;
+//
+//		}
+
 		move();
 	}
 
 	private void move() {
 		
-		
-		switch(dir) {
-		case L:
-			x -= XSPEED;
-			break;
-		
-		case U:
-			y -= YSPEED;
-			break;
-		
-		case R:
-			x += XSPEED;
-			break;
-		
-		case D:
-			y += YSPEED;
-			break;
-		
-		case STOP:
-			break;
-		}
+
+		//æ ¹æ®æœå‘ æ›´æ–°æœ€æ–°ä½ç½®
+		curState.changeMissilePosition(this);
+//		switch(dir) {
+//		case L:
+//			x -= XSPEED;
+//			break;
+//
+//		case U:
+//			y -= YSPEED;
+//			break;
+//
+//		case R:
+//			x += XSPEED;
+//			break;
+//
+//		case D:
+//			y += YSPEED;
+//			break;
+//
+//		case STOP:
+//			break;
+//		}
 		
 		if(x < 0 || y < 0 || x > TankClient.GAME_WIDTH || y > TankClient.GAME_HEIGHT) {
 			live = false;
@@ -134,16 +151,16 @@ public class Missile extends Observable {
 			Explode e = new Explode(t.getX(), t.getY(), tc);
 			tc.explodes.add(e);
 			if(t.isGood()) {
-				//ÈôÊ¹ÎÒ·½Ì¹¿ËÔòÉúÃüÖµ-25£¬²¢´¥·¢µĞ¾üÊıÁ¿µÄÔö¼Ó
+				//è‹¥ä½¿æˆ‘æ–¹å¦å…‹åˆ™ç”Ÿå‘½å€¼-25ï¼Œå¹¶è§¦å‘æ•Œå†›æ•°é‡çš„å¢åŠ 
 				t.setLife(t.getLife()-25);
-				//Í¨Öª¹Û²ìÕß·¢ÉúµÄ±ä»¯
+				//é€šçŸ¥è§‚å¯Ÿè€…å‘ç”Ÿçš„å˜åŒ–
 				HitObserver hitObserver=new HitObserver(this,tc);
 				setChanged();
 				notifyObservers();
-				//Èç¹ûÉúÃüµÍÓÚ0ÔòËÀÍö
+				//å¦‚æœç”Ÿå‘½ä½äº0åˆ™æ­»äº¡
 				if(t.getLife() <= 0) t.setLive(false);
 			} else {
-				//ÈôÊ¹µĞ·½Ì¹¿ËÔòÖ±½ÓËÀÍö
+				//è‹¥ä½¿æ•Œæ–¹å¦å…‹åˆ™ç›´æ¥æ­»äº¡
 				t.setLive(false);
 			}
 			
@@ -188,5 +205,12 @@ public class Missile extends Observable {
 		}
 		return false;
 	}
-	
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
 }

@@ -13,9 +13,8 @@ public class BadTank extends Tank {
         good=false;
     }
 
-    public BadTank(int x, int y, Direction dir, TankClient tc) {
+    public BadTank(int x, int y, TankClient tc) {
         this(x, y);
-        this.dir = dir;
         this.tc = tc;
     }
 
@@ -24,33 +23,48 @@ public class BadTank extends Tank {
             tc.tanks.remove(this);
             return;
         }
-        switch (ptDir) {
-            case L:
-                g.drawImage(tankImags[2], x, y, null);
-                break;
-
-            case U:
-                g.drawImage(tankImags[1], x, y, null);
-                break;
-
-            case R:
-                g.drawImage(tankImags[3], x, y, null);
-                break;
-
-            case D:
-                g.drawImage(tankImags[0], x, y, null);
-                break;
-
-        }
+        this.curState.drawSelf(g);
+//        switch (ptDir) {
+//            case L:
+//                g.drawImage(tankImags[2], x, y, null);
+//                break;
+//
+//            case U:
+//                g.drawImage(tankImags[1], x, y, null);
+//                break;
+//
+//            case R:
+//                g.drawImage(tankImags[3], x, y, null);
+//                break;
+//
+//            case D:
+//                g.drawImage(tankImags[0], x, y, null);
+//                break;
+//
+//        }
         move();
+        //AI坦克随机移动\开火
+        randomAction();
     }
 
-    void doSth(){
-        Direction[] dirs = values();
+    void randomAction(){
         if (step == 0) {
             step = r.nextInt(12) + 3;
-            int rn = r.nextInt(dirs.length);
-            dir = dirs[rn];
+            int rn = r.nextInt(4);//随机四个方向
+            switch (rn) {
+                case 0:
+                    curState = up;
+                    break;
+                case 1:
+                    curState = down;
+                    break;
+                case 2:
+                    curState = left;
+                    break;
+                case 3:
+                    curState = right;
+                    break;
+            }
         }
         step--;
         if (r.nextInt(40) > 38)

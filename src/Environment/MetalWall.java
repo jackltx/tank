@@ -13,7 +13,7 @@ public class MetalWall {
 	private static Image[] wallImags = null;
 	static {
 		wallImags = new Image[] { tk.getImage(OrdinaryWall.class
-				.getResource("../Images/½ðÊôÇ½.gif")), };
+				.getResource("../Images/é‡‘å±žå¢™.gif")), };
 	}
 
 	public MetalWall(int x, int y, TankClient tc) {

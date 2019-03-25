@@ -11,7 +11,7 @@ public class BadTankFactory implements TankFactory {
     }
     @Override
     public Tank createTank() {
-        BadTank badTank=new BadTank(380, 480, Direction.D, tc);
+        BadTank badTank=new BadTank(380, 480, tc);
         return badTank;
     }
 }

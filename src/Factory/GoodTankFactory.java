@@ -12,7 +12,7 @@ public class GoodTankFactory implements TankFactory {
     }
     @Override
     public Tank createTank() {
-        GoodTank goodTank=new GoodTank(380, 480, Direction.STOP, tc);
+        GoodTank goodTank=new GoodTank(380, 480, tc);
         return goodTank;
     }
 }
