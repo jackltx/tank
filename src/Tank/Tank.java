@@ -24,7 +24,10 @@ public abstract class Tank {
 	public int oldX, oldY;
 	public boolean live = true;
 	int life = 100;
-	
+	boolean hasRocket=false;
+
+	private static Toolkit tk = Toolkit.getDefaultToolkit();
+
 	static Random r = new Random();
 	int step = r.nextInt(12) + 3;
 
@@ -32,8 +35,10 @@ public abstract class Tank {
 	Direction dir = STOP;
 	public Direction ptDir = U;
 
-	static Toolkit tk = Toolkit.getDefaultToolkit();
 	static Image[] tankImags = null;
+
+	private static Image[] missileImages = null;
+
 	static {
 		tankImags = new Image[] {
 				tk.getImage(Explode.class.getResource("../Images/tankD.gif")),
@@ -41,6 +46,18 @@ public abstract class Tank {
 				tk.getImage(Explode.class.getResource("../Images/tankL.gif")),
 				tk.getImage(Explode.class.getResource("../Images/tankR.gif")),
 				 };
+		missileImages = new Image[] {
+				tk.getImage(Missile.class.getClassLoader().getResource("images/missileL.gif")),
+
+				tk.getImage(Missile.class.getClassLoader().getResource("images/missileU.gif")),
+
+				tk.getImage(Missile.class.getClassLoader().getResource("images/missileR.gif")),
+
+				tk.getImage(Missile.class.getClassLoader().getResource("images/missileD.gif")),
+
+				tk.getImage(Missile.class.getClassLoader().getResource("images/9.gif")),
+
+		};
 	}
 
 	public Tank(int x, int y) {
@@ -177,7 +194,7 @@ public abstract class Tank {
 				fire.fire(this);
 				break;
 			case KeyEvent.VK_J:
-				fire=new NormalFire();
+				fire=new NormalFire(hasRocket);
 				fire.fire(this);
 				break;
 			case KeyEvent.VK_RIGHT:
@@ -216,8 +233,16 @@ public abstract class Tank {
 			return null;
 		int x = this.x + Tank.WIDTH / 2 - Missile.WIDTH / 2;
 		int y = this.y + Tank.HEIGHT / 2 - Missile.HEIGHT / 2;
-		Missile m = new Missile(x, y + 2, good, ptDir, this.tc);
-		tc.missiles.add(m);
+		Missile m=null;
+		if (this.good&&hasRocket){
+			Missile.changeMissile1();
+			 m= new Missile(x, y + 2, good, ptDir, this.tc);
+			tc.missiles.add(m);
+		}else {
+			Missile.changeMissile2();
+			m = new Missile(x, y + 2, good, ptDir, this.tc);
+			tc.missiles.add(m);
+		}
 		return m;
 	}
 
@@ -326,6 +351,24 @@ public abstract class Tank {
 				this.life += 25;
 			}
 			b.setLive(false);
+			return true;
+		}
+		return false;
+	}
+
+	public boolean eatSuperBloodBox(SuperBloodBox superBloodBox) {
+		if (this.live && superBloodBox.isLive() && this.getRect().intersects(superBloodBox.getRect())) {
+			this.life+=100;
+			superBloodBox.setLive(false);
+			return true;
+		}
+		return false;
+	}
+
+	public boolean eatRocket(RocketBag rocketBag) {
+		if (this.live && rocketBag.isLive() && this.getRect().intersects(rocketBag.getRect())) {
+			hasRocket=true;
+			rocketBag.setLive(false);
 			return true;
 		}
 		return false;

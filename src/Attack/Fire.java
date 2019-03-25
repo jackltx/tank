@@ -1,8 +1,9 @@
 package Attack;
 
 import Environment.Missile;
+import Environment.MissileInterface;
 import Tank.Tank;
 
 public interface Fire {
-    Missile fire(Tank tank);
+    MissileInterface fire(Tank tank);
 }

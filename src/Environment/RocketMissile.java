@@ -6,49 +6,51 @@ import Client.TankClient;
 import Tank.Tank;
 
 import java.awt.*;
-import java.util.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Observable;
 
-public class Missile extends Observable implements MissileInterface{
+public class RocketMissile extends Observable implements MissileInterface{
 
 	public int XSPEED = 10;
 	public int YSPEED = 10;
-	
+
 	public static final int WIDTH = 10;
 	public static final int HEIGHT = 10;
-	
+
 	private int x, y;
 	Direction dir;
-	
+
 	private boolean good;
 	private boolean live = true;
-	
+
 	public TankClient tc;
-	
+
 	private static Toolkit tk = Toolkit.getDefaultToolkit();
 	private static Image[] missileImages = null;
 	public static Map<String, Image> imgs = new HashMap<String, Image>();
 	static {
 		missileImages = new Image[] {
-				tk.getImage(Missile.class.getClassLoader().getResource("images/missileL.gif")),
-				
-				tk.getImage(Missile.class.getClassLoader().getResource("images/missileU.gif")),
-				
-				tk.getImage(Missile.class.getClassLoader().getResource("images/missileR.gif")),
-				
-				tk.getImage(Missile.class.getClassLoader().getResource("images/missileD.gif")),
+				tk.getImage(RocketMissile.class.getClassLoader().getResource("images/missileL.gif")),
 
-				tk.getImage(Missile.class.getClassLoader().getResource("images/9.gif")),
+				tk.getImage(RocketMissile.class.getClassLoader().getResource("images/missileU.gif")),
+
+				tk.getImage(RocketMissile.class.getClassLoader().getResource("images/missileR.gif")),
+
+				tk.getImage(RocketMissile.class.getClassLoader().getResource("images/missileD.gif")),
+
+				tk.getImage(RocketMissile.class.getClassLoader().getResource("images/9.gif")),
 
 		};
 
-		imgs.put("L", missileImages[0]);
+		imgs.put("L", missileImages[4]);
 
-		imgs.put("U", missileImages[1]);
+		imgs.put("U", missileImages[4]);
 
-		imgs.put("R", missileImages[2]);
+		imgs.put("R", missileImages[4]);
 
-		imgs.put("D", missileImages[3]);
+		imgs.put("D", missileImages[4]);
 
 	}
 
@@ -64,14 +66,14 @@ public class Missile extends Observable implements MissileInterface{
 		imgs.put("R", missileImages[2]);
 		imgs.put("D", missileImages[3]);
 	}
-	
-	public Missile(int x, int y, Direction dir) {
+
+	public RocketMissile(int x, int y, Direction dir) {
 		this.x = x;
 		this.y = y;
 		this.dir = dir;
 	}
 
-	public Missile(int x, int y, boolean good, Direction dir, TankClient tc) {
+	public RocketMissile(int x, int y, boolean good, Direction dir, TankClient tc) {
 		this(x, y, dir);
 		this.good = good;
 		this.tc = tc;

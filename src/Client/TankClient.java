@@ -22,6 +22,8 @@ public class TankClient extends Frame {
 	public Tank myTank = tankFactory.createTank();
 
 	BloodBox b = new BloodBox();
+	SuperBloodBox superBloodBox=new SuperBloodBox();
+	RocketBag rocketBag =new RocketBag();
 //	Environment.Home home = new Environment.Home(373, 545, this);
 	public Home home=Home.getInstance();
 
@@ -30,7 +32,7 @@ public class TankClient extends Frame {
 	public List<OrdinaryWall> walls = new ArrayList<OrdinaryWall>();
 	public List<MetalWall> metalWalls = new ArrayList<MetalWall>();
 	public List<Explode> explodes = new ArrayList<Explode>();
-	public List<Missile> missiles = new ArrayList<Missile>();
+	public List<MissileInterface> missiles = new ArrayList<MissileInterface>();
 	public List<Tank> tanks = new ArrayList<Tank>();
 	public List<Tree> trees = new ArrayList<Tree>();
 	public Image screenImage = null;
@@ -80,6 +82,8 @@ public class TankClient extends Frame {
 		home.draw(g);
 		myTank.draw(g);
 		myTank.eat(b);
+		myTank.eatSuperBloodBox(superBloodBox);
+		myTank.eatRocket(rocketBag);
 		for (int i = 0; i < tanks.size(); i++) {
 			Tank t = tanks.get(i);
 			for (int j = 0; j < wallsHome.size(); j++) {
@@ -108,7 +112,7 @@ public class TankClient extends Frame {
 			t.draw(g);
 		}
 		for (int i = 0; i < missiles.size(); i++) {
-			Missile m = missiles.get(i);
+			MissileInterface m = missiles.get(i);
 			m.hitTanks(tanks);
 			m.hitTank(myTank);
 			m.hitHome();
@@ -165,6 +169,8 @@ public class TankClient extends Frame {
 		}
 
 		b.draw(g);
+		superBloodBox.draw(g);
+		rocketBag.draw(g);
 	}
 
 	public void update(Graphics g) {
