@@ -17,15 +17,15 @@ import static Client.Direction.*;
 import static Client.Direction.D;
 
 public abstract class Tank {
-	public static final int XSPEED = 5, YSPEED = 5;
-	public static final int WIDTH = 34, HEIGHT = 35;
+	public int XSPEED = 5, YSPEED = 5;
+	public static int WIDTH = 34, HEIGHT = 35;
 	public TankClient tc;
 	public boolean good;
 	public int x, y;
 	public int oldX, oldY;
 	public boolean live = true;
 	int life = 100;
-	
+	static boolean hasRocket=false;
 	static Random r = new Random();
 	int step = r.nextInt(12) + 3;
 
@@ -40,7 +40,24 @@ public abstract class Tank {
 	protected Stop stop;
 	protected State curState;
 
+
 	static Toolkit tk = Toolkit.getDefaultToolkit();
+	private static Image[] missileImages = null;
+	static {
+
+		missileImages = new Image[] {
+				tk.getImage(Missile.class.getClassLoader().getResource("images/missileL.gif")),
+
+				tk.getImage(Missile.class.getClassLoader().getResource("images/missileU.gif")),
+
+				tk.getImage(Missile.class.getClassLoader().getResource("images/missileR.gif")),
+
+				tk.getImage(Missile.class.getClassLoader().getResource("images/missileD.gif")),
+
+				tk.getImage(Missile.class.getClassLoader().getResource("images/9.gif")),
+
+		};
+	}
 
 	public Tank(int x, int y) {
 		this.x = x;
@@ -123,14 +140,30 @@ public abstract class Tank {
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 		switch (key) {
+			case KeyEvent.VK_1:
+				tc.dispose();
+				tc=new TankClient(50);
+				tc.lauchFrame();
+				break;
+			case KeyEvent.VK_2:
+				tc.dispose();
+				tc=new TankClient(40);
+				tc.lauchFrame();
+				break;
+			case KeyEvent.VK_3:
+				tc.dispose();
+				tc=new TankClient(30);
+				tc.lauchFrame();
+				break;
 		case KeyEvent.VK_F2:
 			//重建一个画布和一个线程 来运行一个新游戏
 			//todo 要能删除原来的游戏
 			//因为home是单例的 上一局里死了之后 按f2 home还是被标记为死了 所以不能重画
 			Home home = Home.getInstance();
 			home.setLive(true);//要重开一局游戏 就要让home活
-			new TankClient().lauchFrame();
+			new TankClient(50).lauchFrame();
 			tc.dispose();
+
 			break;
 		case KeyEvent.VK_RIGHT:
 			curState = this.right;
@@ -203,7 +236,7 @@ public abstract class Tank {
 				fire.fire(this);
 				break;
 			case KeyEvent.VK_J:
-				fire=new NormalFire();
+				fire=new NormalFire(hasRocket);
 				fire.fire(this);
 				break;
 			case KeyEvent.VK_K:
@@ -214,13 +247,18 @@ public abstract class Tank {
 		//locateDirection();
 	}
 
-	public Missile fire() {
+	public MissileInterface fire() {
 		if (!live)
 			return null;
 		int x = this.x + Tank.WIDTH / 2 - Missile.WIDTH / 2;
 		int y = this.y + Tank.HEIGHT / 2 - Missile.HEIGHT / 2;
-		//发射的子弹
-		Missile m = new Missile(x, y + 2, good, curState, this.tc);
+//<<<<<<< HEAD
+//		//发射的子弹
+//		Missile m = new Missile(x, y + 2, good, curState, this.tc);
+//		tc.missiles.add(m);
+//=======
+		MissileInterface m=null;
+		m = new Missile(x, y + 2, good, curState, this.tc);
 		tc.missiles.add(m);
 		return m;
 	}
@@ -345,6 +383,38 @@ public abstract class Tank {
 				this.life += 25;
 			}
 			b.setLive(false);
+			return true;
+		}
+		return false;
+	}
+
+	public boolean eatLightning(Lightning lightning) {
+		if (this.live && lightning.isLive() && this.getRect().intersects(lightning.getRect())) {
+			this.XSPEED=8;
+			this.YSPEED=8;
+			lightning.setLive(false);
+			return true;
+		}
+		return false;
+	}
+
+	public boolean eatSuperBloodBox(SuperBloodBox superBloodBox) {
+		if (this.live && superBloodBox.isLive() && this.getRect().intersects(superBloodBox.getRect())) {
+			if (this.life<200) {
+				this.life += 50;
+			}
+			superBloodBox.setLive(false);
+			return true;
+		}
+		return false;
+	}
+
+	public boolean eatRocket(RocketBag rocketBag) {
+		if (this.live && rocketBag.isLive() && this.getRect().intersects(rocketBag.getRect())) {
+//			System.out.println("rrrrrrrrrrr");
+			hasRocket=true;
+			System.out.println(hasRocket);
+			rocketBag.setLive(false);
 			return true;
 		}
 		return false;

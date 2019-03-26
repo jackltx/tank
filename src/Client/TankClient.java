@@ -22,6 +22,9 @@ public class TankClient extends Frame {
 	public Tank myTank = tankFactory.createTank();
 
 	BloodBox b = new BloodBox();
+	SuperBloodBox superBloodBox=new SuperBloodBox();
+	Lightning lightning=new Lightning();
+	RocketBag rocketBag =new RocketBag();
 //	Environment.Home home = new Environment.Home(373, 545, this);
 	public Home home=Home.getInstance();
 
@@ -30,18 +33,18 @@ public class TankClient extends Frame {
 	public List<OrdinaryWall> walls = new ArrayList<OrdinaryWall>();
 	public List<MetalWall> metalWalls = new ArrayList<MetalWall>();
 	public List<Explode> explodes = new ArrayList<Explode>();
-	public List<Missile> missiles = new ArrayList<Missile>();
+	public List<MissileInterface> missiles = new ArrayList<MissileInterface>();
 	public List<Tank> tanks = new ArrayList<Tank>();
 	public List<Tree> trees = new ArrayList<Tree>();
 	public Image screenImage = null;
+	private int sleep;
 
+	public TankClient(int sleep){
+		this.sleep=sleep;
+	}
 
 	public void paint(Graphics g) {
 
-		/*
-		* 画出左上角提示字
-		* 先设置颜色 在用drewString写
-		* */
 		Color c = g.getColor();
 		g.setColor(Color.red);
 		g.drawString("Restart the game: F2", 10, 50);
@@ -49,11 +52,6 @@ public class TankClient extends Frame {
 		g.drawString("Super Fire: K", 10, 90);
 		g.drawString("The key control direction: A W D S", 10, 110);
 
-		/*
-		* 画出中间上方敌人数量
-		* 将原有字体f1保存起来，用不同的新建字体，画出不同的字。
-		* 再将f1字体放回去
-		* */
 		Font f1 = g.getFont();
 		g.setFont(new Font("aaa", Font.BOLD, 25));
 		g.drawString("The number of enemy tanks: ", 210, 70);
@@ -90,6 +88,9 @@ public class TankClient extends Frame {
 		home.draw(g);
 		myTank.draw(g);
 		myTank.eat(b);
+		myTank.eatLightning(lightning);
+		myTank.eatSuperBloodBox(superBloodBox);
+		myTank.eatRocket(rocketBag);
 		for (int i = 0; i < tanks.size(); i++) {
 			Tank t = tanks.get(i);
 			for (int j = 0; j < wallsHome.size(); j++) {
@@ -118,7 +119,7 @@ public class TankClient extends Frame {
 			t.draw(g);
 		}
 		for (int i = 0; i < missiles.size(); i++) {
-			Missile m = missiles.get(i);
+			MissileInterface m = missiles.get(i);
 			m.hitTanks(tanks);
 			m.hitTank(myTank);
 			m.hitHome();
@@ -175,6 +176,9 @@ public class TankClient extends Frame {
 		}
 
 		b.draw(g);
+		superBloodBox.draw(g);
+		rocketBag.draw(g);
+		lightning.draw(g);
 	}
 
 	public void update(Graphics g) {
@@ -190,12 +194,12 @@ public class TankClient extends Frame {
 		g.drawImage(screenImage, 0, 0, null);
 	}
 
-	//初始化游戏界面并开始游戏
+	//��ʼ����Ϸ���沢��ʼ��Ϸ
 	public void lauchFrame(){
-		//创建游戏静态图面内容
+		//������Ϸ��̬ͼ������
 		home.setTc(this);
 		createFrame();
-		//添加敌方坦克
+		//��ӵз�̹��
 		TankFactory tankFactory=new BadTankFactory(this);
 		for (int i = 0; i < 9; i++) {
 			Tank t=tankFactory.createTank();
@@ -224,28 +228,28 @@ public class TankClient extends Frame {
 //				tanks.add(new Tank.Tank(1,  60 * (i - 18), false, Client.Direction.D,
 //						this));
 //		}
-		//设置游戏界面大小、窗口定位、标题
+		//������Ϸ�����С�����ڶ�λ������
 		this.setSize(GAME_WIDTH, GAME_HEIGHT);
 		this.setLocation(200, 60);
 		this.setTitle("TankWar");
-		//支持窗口关闭
+		//֧�ִ��ڹر�
 		this.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 				System.exit(0);
 			}
 		});
-		//固定大小、背景、可视化设置
+		//�̶���С�����������ӻ�����
 		this.setResizable(false);
 		this.setBackground(Color.GREEN);
 		this.setVisible(true);
-		//添加键盘支持
+		//��Ӽ���֧��
 		this.addKeyListener(new KeyMonitor());
-		//开始游戏
-		new Thread(new PaintThread(this)).start();
+		//��ʼ��Ϸ
+		new Thread(new PaintThread(this,sleep)).start();
 	}
-	//创建游戏静态图面内容
+	//������Ϸ��̬ͼ������
 	public void createFrame() {
-		//绘制普通墙体
+		//������ͨǽ��
 		for (int i = 0; i < 27; i++) {
 			if (i < 9)
 				walls.add(new OrdinaryWall(296 + 22 * i, 300, this));
@@ -254,7 +258,7 @@ public class TankClient extends Frame {
 			else
 				walls.add(new OrdinaryWall(296 + 22 * (i - 18), 400, this));
 		}
-		//绘制金属墙体
+		//���ƽ���ǽ��
 		for (int i = 0; i < 14; i++){
 			if (i < 5)
 				metalWalls.add(new MetalWall(120 + 36 * i, 110, this));
@@ -263,7 +267,7 @@ public class TankClient extends Frame {
 			else
 				metalWalls.add(new MetalWall(500 + 36 * (i - 10), 160, this));
 		}
-		//绘制树林
+		//��������
 		for (int i = 0; i < 48; i++) {
 			if (i < 8)
 				trees.add(new Tree(500 + 36 * i, 300, this));
@@ -278,18 +282,17 @@ public class TankClient extends Frame {
 			else
 				trees.add(new Tree(1 + 36 * (i - 40), 403, this));
 		}
-		//绘制河流
+		//���ƺ���
 		for (int i = 0; i < 2; i++) {
 			if (i < 1)
 				rivers.add(new River(80, 440, this));
 			else
 				rivers.add(new River(670, 440, this));
 		}
-		//绘制老家保卫墙
+		//�����ϼұ���ǽ
 		home.createHomeWall();
 	}
 
-	//键盘监听器
 	class KeyMonitor extends KeyAdapter {
 
 		public void keyReleased(KeyEvent e) {
