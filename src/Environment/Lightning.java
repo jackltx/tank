@@ -5,7 +5,7 @@ import Client.TankClient;
 import java.awt.*;
 import java.util.Random;
 
-public class RocketBag {
+public class Lightning {
 
 	public static final int w = 20;
 	public static final int h = 20;
@@ -21,12 +21,12 @@ public class RocketBag {
 	private static Image[] rocketImags = null;
 	static {
 		rocketImags = new Image[] { tk.getImage(OrdinaryWall.class
-				.getResource("../Images/rocket.jpg")), };
+				.getResource("../Images/lightning.jpg")), };
 	}
 
-	private int[][] pos = { { 100, 160 }, { 300, 200 }, { 700, 160 }, { 300, 600 } };
+	private int[][] pos = { { 400, 230 }, { 250, 500 }, { 550, 600 } };
 
-	public RocketBag() {
+	public Lightning() {
 		x = pos[0][0];
 		y = pos[0][1];
 	}

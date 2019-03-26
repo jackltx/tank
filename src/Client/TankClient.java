@@ -23,6 +23,7 @@ public class TankClient extends Frame {
 
 	BloodBox b = new BloodBox();
 	SuperBloodBox superBloodBox=new SuperBloodBox();
+	Lightning lightning=new Lightning();
 	RocketBag rocketBag =new RocketBag();
 //	Environment.Home home = new Environment.Home(373, 545, this);
 	public Home home=Home.getInstance();
@@ -36,6 +37,11 @@ public class TankClient extends Frame {
 	public List<Tank> tanks = new ArrayList<Tank>();
 	public List<Tree> trees = new ArrayList<Tree>();
 	public Image screenImage = null;
+	private int sleep;
+
+	public TankClient(int sleep){
+		this.sleep=sleep;
+	}
 
 	public void paint(Graphics g) {
 
@@ -82,6 +88,7 @@ public class TankClient extends Frame {
 		home.draw(g);
 		myTank.draw(g);
 		myTank.eat(b);
+		myTank.eatLightning(lightning);
 		myTank.eatSuperBloodBox(superBloodBox);
 		myTank.eatRocket(rocketBag);
 		for (int i = 0; i < tanks.size(); i++) {
@@ -171,6 +178,7 @@ public class TankClient extends Frame {
 		b.draw(g);
 		superBloodBox.draw(g);
 		rocketBag.draw(g);
+		lightning.draw(g);
 	}
 
 	public void update(Graphics g) {
@@ -237,7 +245,7 @@ public class TankClient extends Frame {
 		//添加键盘支持
 		this.addKeyListener(new KeyMonitor());
 		//开始游戏
-		new Thread(new PaintThread(this)).start();
+		new Thread(new PaintThread(this,sleep)).start();
 	}
 	//创建游戏静态图面内容
 	public void createFrame() {

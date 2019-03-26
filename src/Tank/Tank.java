@@ -16,8 +16,8 @@ import static Client.Direction.*;
 import static Client.Direction.D;
 
 public abstract class Tank {
-	public static final int XSPEED = 5, YSPEED = 5;
-	public static final int WIDTH = 34, HEIGHT = 35;
+	public int XSPEED = 5, YSPEED = 5;
+	public static int WIDTH = 34, HEIGHT = 35;
 	public TankClient tc;
 	public boolean good;
 	public int x, y;
@@ -132,8 +132,24 @@ public abstract class Tank {
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 		switch (key) {
+			case KeyEvent.VK_1:
+				tc.dispose();
+				tc=new TankClient(50);
+				tc.lauchFrame();
+				break;
+			case KeyEvent.VK_2:
+				tc.dispose();
+				tc=new TankClient(40);
+				tc.lauchFrame();
+				break;
+			case KeyEvent.VK_3:
+				tc.dispose();
+				tc=new TankClient(30);
+				tc.lauchFrame();
+				break;
 		case KeyEvent.VK_F2:
-			tc=new TankClient();
+			tc.dispose();
+			tc=new TankClient(50);
 			tc.lauchFrame();
 			break;
 		case KeyEvent.VK_RIGHT:
@@ -351,6 +367,16 @@ public abstract class Tank {
 				this.life += 25;
 			}
 			b.setLive(false);
+			return true;
+		}
+		return false;
+	}
+
+	public boolean eatLightning(Lightning lightning) {
+		if (this.live && lightning.isLive() && this.getRect().intersects(lightning.getRect())) {
+			this.XSPEED=10;
+			this.YSPEED=10;
+			lightning.setLive(false);
 			return true;
 		}
 		return false;
