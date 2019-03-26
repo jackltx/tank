@@ -14,8 +14,8 @@ public class OrdinaryWall {
 	private static Image[] wallImags = null;
 	static {
 		wallImags = new Image[] {
-//		 tk.getImage(Environment.OrdinaryWall.class.getResource("Images/½ðÊôÇ½.gif")),
-		tk.getImage(OrdinaryWall.class.getResource("../Images/ÆÕÍ¨Ç½.gif")),
+//		 tk.getImage(Environment.OrdinaryWall.class.getResource("Images/é‡‘å±žå¢™.gif")),
+		tk.getImage(OrdinaryWall.class.getResource("../Images/æ™®é€šå¢™.gif")),
 		};
 	}
 

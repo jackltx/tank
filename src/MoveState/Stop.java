@@ -1,6 +1,7 @@
 package MoveState;
 
 import Environment.Missile;
+import Environment.MissileInterface;
 import Tank.Tank;
 
 import java.awt.*;
@@ -40,12 +41,12 @@ public class Stop implements State {
     }
 
     @Override
-    public void drawMissileSelf(Graphics g, Missile missile) {
+    public void drawMissileSelf(Graphics g, MissileInterface missile) {
         preState.drawMissileSelf(g, missile);
     }
 
     @Override
-    public void changeMissilePosition(Missile missile) {
+    public void changeMissilePosition(MissileInterface missile) {
         preState.changeMissilePosition(missile);
     }
 

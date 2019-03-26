@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 
-public class Missile extends Observable {
+public class Missile extends Observable implements MissileInterface{
 	public int XSPEED = 10;
 	public int YSPEED = 10;
 	
@@ -26,33 +26,39 @@ public class Missile extends Observable {
 	private boolean live = true;
 	
 	public TankClient tc;
-	
 	private static Toolkit tk = Toolkit.getDefaultToolkit();
-	private static Image[] missileImages = null;
-	private static Map<String, Image> imgs = new HashMap<String, Image>();
+	public static Image[] missileImages = new Image[5];
+	public static Map<String, Image> imgs = new HashMap<String, Image>();
 	static {
-		missileImages = new Image[] {
-				tk.getImage(Missile.class.getClassLoader().getResource("images/missileL.gif")),
-				
-				tk.getImage(Missile.class.getClassLoader().getResource("images/missileU.gif")),
-				
-				tk.getImage(Missile.class.getClassLoader().getResource("images/missileR.gif")),
-				
-				tk.getImage(Missile.class.getClassLoader().getResource("images/missileD.gif")),
-				
-		};
-		
-		imgs.put("L", missileImages[0]);
-		
-		imgs.put("U", missileImages[1]);
-		
-		imgs.put("R", missileImages[2]);
-		
-		imgs.put("D", missileImages[3]);
-		
-		
-	}
 
+		missileImages[0] = tk.getImage(Missile.class.getClassLoader().getResource("images/missileL.gif"));
+		missileImages[1] = tk.getImage(Missile.class.getClassLoader().getResource("images/missileU.gif"));
+		missileImages[2] = tk.getImage(Missile.class.getClassLoader().getResource("images/missileR.gif"));
+		missileImages[3] = tk.getImage(Missile.class.getClassLoader().getResource("images/missileD.gif"));
+		missileImages[4] = tk.getImage(Missile.class.getClassLoader().getResource("images/9.gif"));
+
+		imgs.put("L", missileImages[0]);
+
+		imgs.put("U", missileImages[1]);
+
+		imgs.put("R", missileImages[2]);
+
+		imgs.put("D", missileImages[3]);
+
+
+	}
+//    public static void changeMissile1(){
+//        imgs.put("L", missileImages[4]);
+//        imgs.put("U", missileImages[4]);
+//        imgs.put("R", missileImages[4]);
+//        imgs.put("D", missileImages[4]);
+//    }
+//    public static void changeMissile2(){
+//        imgs.put("L", missileImages[0]);
+//        imgs.put("U", missileImages[1]);
+//        imgs.put("R", missileImages[2]);
+//        imgs.put("D", missileImages[3]);
+//    }
 	public int getX() {
 		return x;
 	}
@@ -61,9 +67,6 @@ public class Missile extends Observable {
 		return y;
 	}
 
-	public static Map<String, Image> getImgs() {
-		return imgs;
-	}
 
 	public Missile(int x, int y, State curState) {
 		this.x = x;
@@ -107,7 +110,7 @@ public class Missile extends Observable {
 		move();
 	}
 
-	private void move() {
+	public void move() {
 		
 
 		//根据朝向 更新最新位置
@@ -211,6 +214,21 @@ public class Missile extends Observable {
 	}
 
 	public void setY(int y) {
+
 		this.y = y;
+	}
+
+	@Override
+	public int getXSPEED() {
+		return XSPEED;
+	}
+
+	@Override
+	public int getYSPEED() {
+		return YSPEED;
+	}
+	@Override
+	public Map<String, Image> getImgs() {
+		return this.imgs;
 	}
 }

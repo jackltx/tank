@@ -2,6 +2,7 @@ package MoveState;
 
 import Client.TankClient;
 import Environment.Missile;
+import Environment.MissileInterface;
 import Tank.Tank;
 
 import java.awt.*;
@@ -28,12 +29,12 @@ public class Up implements State {
         g.drawImage(tankImage, tank.x, tank.y, null);
     }
     @Override
-    public void drawMissileSelf(Graphics g, Missile missile) {
+    public void drawMissileSelf(Graphics g, MissileInterface missile) {
         g.drawImage(missile.getImgs().get("U"), missile.getX(), missile.getY(), null);
     }
 
     @Override
-    public void changeMissilePosition(Missile missile) {
-        missile.setY(missile.getY() - missile.YSPEED);
+    public void changeMissilePosition(MissileInterface missile) {
+        missile.setY(missile.getY() - missile.getYSPEED());
     }
 }

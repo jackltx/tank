@@ -1,6 +1,7 @@
 package MoveState;
 
 import Environment.Missile;
+import Environment.MissileInterface;
 import Tank.Tank;
 
 import java.awt.*;
@@ -24,12 +25,12 @@ public class Down implements State {
     }
 
     @Override
-    public void drawMissileSelf(Graphics g,Missile missile) {
+    public void drawMissileSelf(Graphics g, MissileInterface missile) {
         g.drawImage(missile.getImgs().get("D"), missile.getX(), missile.getY(), null);
     }
 
     @Override
-    public void changeMissilePosition(Missile missile) {
-        missile.setY(missile.getY() + missile.YSPEED);
+    public void changeMissilePosition(MissileInterface missile) {
+        missile.setY(missile.getY() + missile.getYSPEED());
     }
 }

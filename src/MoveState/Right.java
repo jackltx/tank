@@ -1,6 +1,7 @@
 package MoveState;
 
 import Environment.Missile;
+import Environment.MissileInterface;
 import Tank.Tank;
 
 import java.awt.*;
@@ -22,12 +23,12 @@ public class Right implements State {
         g.drawImage(tankImage, tank.x, tank.y, null);
     }
     @Override
-    public void drawMissileSelf(Graphics g, Missile missile) {
+    public void drawMissileSelf(Graphics g, MissileInterface missile) {
         g.drawImage(missile.getImgs().get("R"), missile.getX(), missile.getY(), null);
     }
 
     @Override
-    public void changeMissilePosition(Missile missile) {
-        missile.setX(missile.getX() + missile.XSPEED);
+    public void changeMissilePosition(MissileInterface missile) {
+        missile.setX(missile.getX() + missile.getXSPEED());
     }
 }

@@ -194,12 +194,12 @@ public class TankClient extends Frame {
 		g.drawImage(screenImage, 0, 0, null);
 	}
 
-	//��ʼ����Ϸ���沢��ʼ��Ϸ
+	//???????????�g??????
 	public void lauchFrame(){
-		//������Ϸ��̬ͼ������
+		//?????????????????
 		home.setTc(this);
 		createFrame();
-		//��ӵз�̹��
+		//???��????
 		TankFactory tankFactory=new BadTankFactory(this);
 		for (int i = 0; i < 9; i++) {
 			Tank t=tankFactory.createTank();
@@ -228,28 +228,28 @@ public class TankClient extends Frame {
 //				tanks.add(new Tank.Tank(1,  60 * (i - 18), false, Client.Direction.D,
 //						this));
 //		}
-		//������Ϸ�����С�����ڶ�λ������
+		//????????????��???????��??????
 		this.setSize(GAME_WIDTH, GAME_HEIGHT);
 		this.setLocation(200, 60);
 		this.setTitle("TankWar");
-		//֧�ִ��ڹر�
+		//????????
 		this.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 				System.exit(0);
 			}
 		});
-		//�̶���С�����������ӻ�����
+		//?????��?????????????????
 		this.setResizable(false);
 		this.setBackground(Color.GREEN);
 		this.setVisible(true);
-		//��Ӽ���֧��
+		//?????????
 		this.addKeyListener(new KeyMonitor());
-		//��ʼ��Ϸ
+		//??????
 		new Thread(new PaintThread(this,sleep)).start();
 	}
-	//������Ϸ��̬ͼ������
+	//?????????????????
 	public void createFrame() {
-		//������ͨǽ��
+		//??????????
 		for (int i = 0; i < 27; i++) {
 			if (i < 9)
 				walls.add(new OrdinaryWall(296 + 22 * i, 300, this));
@@ -258,7 +258,7 @@ public class TankClient extends Frame {
 			else
 				walls.add(new OrdinaryWall(296 + 22 * (i - 18), 400, this));
 		}
-		//���ƽ���ǽ��
+		//??????????
 		for (int i = 0; i < 14; i++){
 			if (i < 5)
 				metalWalls.add(new MetalWall(120 + 36 * i, 110, this));
@@ -267,7 +267,7 @@ public class TankClient extends Frame {
 			else
 				metalWalls.add(new MetalWall(500 + 36 * (i - 10), 160, this));
 		}
-		//��������
+		//????????
 		for (int i = 0; i < 48; i++) {
 			if (i < 8)
 				trees.add(new Tree(500 + 36 * i, 300, this));
@@ -282,14 +282,14 @@ public class TankClient extends Frame {
 			else
 				trees.add(new Tree(1 + 36 * (i - 40), 403, this));
 		}
-		//���ƺ���
+		//???????
 		for (int i = 0; i < 2; i++) {
 			if (i < 1)
 				rivers.add(new River(80, 440, this));
 			else
 				rivers.add(new River(670, 440, this));
 		}
-		//�����ϼұ���ǽ
+		//???????????
 		home.createHomeWall();
 	}
 
