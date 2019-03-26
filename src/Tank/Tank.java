@@ -53,7 +53,7 @@ public abstract class Tank {
 		this.left = new Left(this, tk.getImage(Explode.class.getResource("../Images/tankL.gif")));
 		this.right = new Right(this, tk.getImage(Explode.class.getResource("../Images/tankR.gif")));
 		this.stop = new Stop(this, this.up);
-		this.curState = this.up;
+		this.curState = this.stop;
 	}
 
 	public Tank(int x, int y, TankClient tc) {
@@ -126,34 +126,44 @@ public abstract class Tank {
 		case KeyEvent.VK_F2:
 			//重建一个画布和一个线程 来运行一个新游戏
 			//todo 要能删除原来的游戏
-			tc.dispose();
 			new TankClient().lauchFrame();
+			tc.dispose();
 			break;
 		case KeyEvent.VK_RIGHT:
 			curState = this.right;
+			stop.addPreState(curState);
 			break;
 		case KeyEvent.VK_D:
 			curState = this.right;
+			stop.addPreState(curState);
 			break;
 		case KeyEvent.VK_LEFT:
 			curState = this.left;
+			stop.addPreState(curState);
 			break;
 		case KeyEvent.VK_A:
 			curState = this.left;
+			stop.addPreState(curState);
 			break;
 		case KeyEvent.VK_UP:
 			curState = this.up;
+			stop.addPreState(curState);
 			break;
 		case KeyEvent.VK_W:
 			curState = this.up;
+			stop.addPreState(curState);
 			break;
 		case KeyEvent.VK_DOWN:
 			curState = this.down;
+			stop.addPreState(curState);
 			break;
 		case KeyEvent.VK_S:
 			curState = this.down;
+			stop.addPreState(curState);
 			break;
 		}
+		//保存上一步的操作 为了保证多键同时按下 松开后的方向正确
+		//stop.addPreState(curState);
 		//最后确定坦克朝向
 //		locateDirection();
 	}
@@ -193,43 +203,11 @@ public abstract class Tank {
 				fire=new NormalFire();
 				fire.fire(this);
 				break;
-			case KeyEvent.VK_RIGHT:
-				//把stop类的preState设置成之前的状态
-				stop.setPreState(curState);
-				curState = stop;
-				break;
-			case KeyEvent.VK_D:
-				stop.setPreState(curState);
-				curState = stop;
-				break;
-			case KeyEvent.VK_LEFT:
-				stop.setPreState(curState);
-				curState = stop;
-				break;
-			case KeyEvent.VK_A:
-				stop.setPreState(curState);
-				curState = stop;
-				break;
-			case KeyEvent.VK_UP:
-				stop.setPreState(curState);
-				curState = stop;
-				break;
-			case KeyEvent.VK_W:
-				stop.setPreState(curState);
-				curState = stop;
-				break;
-			case KeyEvent.VK_DOWN:
-				stop.setPreState(curState);
-				curState = stop;
-				break;
-			case KeyEvent.VK_S:
-				stop.setPreState(curState);
-				curState = stop;
-				break;
 			case KeyEvent.VK_K:
 				superFire();
 				break;
 		}
+		curState = stop.findCurState(key, up, down, left, right);
 		//locateDirection();
 	}
 
