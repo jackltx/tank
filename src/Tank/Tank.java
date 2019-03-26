@@ -126,6 +126,9 @@ public abstract class Tank {
 		case KeyEvent.VK_F2:
 			//重建一个画布和一个线程 来运行一个新游戏
 			//todo 要能删除原来的游戏
+			//因为home是单例的 上一局里死了之后 按f2 home还是被标记为死了 所以不能重画
+			Home home = Home.getInstance();
+			home.setLive(true);//要重开一局游戏 就要让home活
 			new TankClient().lauchFrame();
 			tc.dispose();
 			break;
