@@ -374,8 +374,8 @@ public abstract class Tank {
 
 	public boolean eatLightning(Lightning lightning) {
 		if (this.live && lightning.isLive() && this.getRect().intersects(lightning.getRect())) {
-			this.XSPEED=10;
-			this.YSPEED=10;
+			this.XSPEED=8;
+			this.YSPEED=8;
 			lightning.setLive(false);
 			return true;
 		}
@@ -384,7 +384,9 @@ public abstract class Tank {
 
 	public boolean eatSuperBloodBox(SuperBloodBox superBloodBox) {
 		if (this.live && superBloodBox.isLive() && this.getRect().intersects(superBloodBox.getRect())) {
-			this.life+=100;
+			if (this.life<200) {
+				this.life += 50;
+			}
 			superBloodBox.setLive(false);
 			return true;
 		}
