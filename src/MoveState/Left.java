@@ -32,4 +32,12 @@ public class Left implements State {
     public void changeMissilePosition(MissileInterface missile) {
         missile.setX(missile.getX() - missile.getXSPEED());
     }
+
+    public Tank getTank() {
+        return tank;
+    }
+
+    public Image getTankImage() {
+        return tankImage;
+    }
 }

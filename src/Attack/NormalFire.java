@@ -1,6 +1,7 @@
 package Attack;
 
 import Environment.*;
+import Factory.StateFactory;
 import Tank.Tank;
 
 public class NormalFire implements Fire {
@@ -16,9 +17,9 @@ public class NormalFire implements Fire {
         int y = tank.y + Tank.HEIGHT / 2 - Missile.HEIGHT / 2;
         MissileInterface m=null;
         if (hasRocket){
-            m = new RocketMissile(x, y + 2, tank.good, tank.getCurState(), tank.tc);
+            m = new RocketMissile(x, y + 2, tank.good, StateFactory.clone(tank.getCurState()), tank.tc);
         }else {
-            m = new Missile(x, y + 2, tank.good, tank.getCurState(), tank.tc);
+            m = new Missile(x, y + 2, tank.good, StateFactory.clone(tank.getCurState()), tank.tc);
         }
         tank.tc.missiles.add(m);
         return m;

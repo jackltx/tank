@@ -33,4 +33,11 @@ public class Down implements State {
     public void changeMissilePosition(MissileInterface missile) {
         missile.setY(missile.getY() + missile.getYSPEED());
     }
+    public Tank getTank() {
+        return tank;
+    }
+
+    public Image getTankImage() {
+        return tankImage;
+    }
 }

@@ -21,6 +21,14 @@ public class Stop implements State {
 
     }
 
+    public Stop(Tank tank, State initState, HashMap<State, Integer> pressed) {
+
+        this.tank = tank;
+        this.pressed = pressed;
+        this.preState = initState;
+
+    }
+
     public State getPreState() {
         return preState;
     }
@@ -75,5 +83,11 @@ public class Stop implements State {
 
     }
 
+    public Tank getTank() {
+        return tank;
+    }
 
+    public HashMap<State, Integer> getPressed() {
+        return pressed;
+    }
 }

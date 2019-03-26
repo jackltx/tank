@@ -7,6 +7,7 @@ import Attack.QuickFire;
 import Client.Direction;
 import Client.TankClient;
 import Environment.*;
+import Factory.StateFactory;
 import MoveState.*;
 
 import java.awt.*;
@@ -258,7 +259,7 @@ public abstract class Tank {
 //		tc.missiles.add(m);
 //=======
 		MissileInterface m=null;
-		m = new Missile(x, y + 2, good, curState, this.tc);
+		m = new Missile(x, y + 2, good, StateFactory.clone(curState), this.tc);
 		tc.missiles.add(m);
 		return m;
 	}
@@ -268,7 +269,7 @@ public abstract class Tank {
 			return null;
 		int x = this.x + Tank.WIDTH / 2 - Missile.WIDTH / 2;
 		int y = this.y + Tank.HEIGHT / 2 - Missile.HEIGHT / 2;
-		Missile m = new Missile(x, y, good, curState, this.tc);
+		Missile m = new Missile(x, y, good, StateFactory.clone(curState), this.tc);
 		tc.missiles.add(m);
 		return m;
 	}
@@ -413,7 +414,6 @@ public abstract class Tank {
 		if (this.live && rocketBag.isLive() && this.getRect().intersects(rocketBag.getRect())) {
 //			System.out.println("rrrrrrrrrrr");
 			hasRocket=true;
-			System.out.println(hasRocket);
 			rocketBag.setLive(false);
 			return true;
 		}
